@@ -76,6 +76,7 @@ app.get("/population/:continent", (req, res) => {
 
 //========== PORT ============//
 const PORT = process.env.PORT;
+console.log(PORT);
 
 app
   .listen(PORT, () => {

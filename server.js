@@ -2,7 +2,7 @@ const express = require("express");
 const mysql = require("mysql2");
 const fs = require("fs");
 require("dotenv").config();
-
+const cors = require("cors")
 const app = express();
 
 //create a connection to the database using connection pools- this keeps the connection open and allows people to queue
@@ -17,6 +17,8 @@ const pool = mysql.createPool({
   connectionLimit: 10, // number of available connection spots
   queueLimit: 0, //how many people can queue for a connection spot- if 0 as many people as needed can queue
 });
+
+app.use(cors());
 
 //========== ENDPOINTS ============//
 //Root endpoint: return all countries
